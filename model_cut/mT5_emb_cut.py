@@ -1,6 +1,8 @@
+"""
+cut by your own corpus
+"""
 import torch
 from transformers import MT5ForConditionalGeneration, T5Tokenizer
-from transformers import TFMT5ForConditionalGeneration, T5Tokenizer
 import pandas as pd
 import csv
 from collections import Counter
@@ -45,7 +47,7 @@ for i, (k, v) in enumerate(cnt_keep.most_common(30_000)):
     if k not in new_tokens:
         new_tokens.add(k)
 
-for t in range(tokenizer.vocab_size - 100, tokenizer.vocab_size):
+for t in range(tokenizer.vocab_size - 100, tokenizer.vocab_size):  # 100 <extra_id_xx> that mT5 uses
     new_tokens.add(t)
 print(len(new_tokens))
 
