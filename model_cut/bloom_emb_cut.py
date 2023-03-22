@@ -10,7 +10,7 @@ import torch
 from transformers import AutoTokenizer, BloomModel
 from tqdm.auto import tqdm, trange
 
-model_path = '/data2/duanyiwen/liuxin/models/bloom560m'
+model_path = '/*/models/bloom560m'
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 model = BloomModel.from_pretrained(model_path)
 
@@ -64,14 +64,14 @@ model.save_pretrained('./bloom-560m-en_zh')
 
 
 import json
-with open("/data2/duanyiwen/liuxin/models/bloom560m/tokenizer.json", "r") as f:
+with open("/*/models/bloom560m/tokenizer.json", "r") as f:
     d = json.load(f)
 new_vocab = {}
 for t, new_id, _ in pieces_list:
     new_vocab[t] = new_id
 d['model']['vocab'] = new_vocab
 
-with open("/data2/duanyiwen/liuxin/models/bloom560m/tokenizer.json", "w") as f:
+with open("*/tokenizer.json", "w") as f:
     json.dump(d, f, ensure_ascii=False)
 
 # from transformers import BloomTokenizerFast
