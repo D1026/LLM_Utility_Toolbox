@@ -1,5 +1,5 @@
 """
-if you have a BloomForCausalLM model that have been finetune, you can cut it by this code.
+if you have a BloomForCausalLM model that have been fine-tuned, you can cut it by this code.
 you should notice, the lm_head and embedding layer are two independent layer.
 it means, parameters are not shared on input embedding and output embedding, this is different from T5
 
